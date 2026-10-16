@@ -1,23 +1,17 @@
 {
   "name": "ai-photo-description",
   "version": "1.0.0",
-  "main": "index.ts",
-  "type": "module",
-  "scripts": {
-    "start": "node --env-file=.env index.ts",
-    "typecheck": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
+  "description": "Upload a photo and get an AI-generated description of it",
   "author": "Hannes Alarotu",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.134.0",
-    "express": "^5.3.0"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.6",
-    "@types/node": "^26.6.5",
-    "typescript": "^7.0.2"
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "dev:backend": "npm --prefix backend start",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix backend ci && npm --prefix frontend ci && npm --prefix frontend run build",
+    "start": "npm --prefix backend start",
+    "typecheck": "npm --prefix backend run typecheck && npm --prefix frontend run typecheck",
+    "lint": "npm --prefix frontend run lint"
   }
 }
